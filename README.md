@@ -1,6 +1,6 @@
 # Handling a Large Number of Attributes in Conjoint Analysis with Symbridge Calculation
 
-Python library (not yet deployed) to make a conjoint analysis and extended calculation if we have a lot of attributes using symbridge analysis.
+Python library (not yet deployed) to make a conjoint analysis and extended calculation if we have a lot of attributes using symbridge analysis. A little bit snippet on how to do it:
 
 ## Background
 
@@ -30,8 +30,8 @@ There's a lot of bridging method we can pick to integrate these two stages into 
 
 Create a scalar value to make a bridging. There are two alternatives we can go:
 
-    - $B = (R_{11} / R_{21}) + (R_{12} / R_{22}) $
-    - $B = (R_{11} + R_{12}) / (R_{21} + R_{22}) $
+$$B = (R_{11} / R_{21}) + (R_{12} / R_{22})$$
+$$B = (R_{11} + R_{12}) / (R_{21} + R_{22})$$
 
 Where $R_{ij}$ is the range of partworths of bridging attribute j in subdesign i. Or in a simpler way, it's the **estimate for each features in conjoint design**, and **self-explicated score given by respondents in rating design**. As recommended, it's preferable to **go with the second one**, as it's more stable and consistent. 
 
