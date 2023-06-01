@@ -8,7 +8,7 @@ Conjoint analysis is one of market research methods to know the part worth of an
 
 ## Objectives
 
-This library was inspired by McCullough (2000) paper on how to tackle this problem. Off the computer (during the data collection process), we can extend this conjoint analysis into 2 stages:
+This library was inspired by <a href='http://www.macroinc.com/english/papers/A%20Method%20for%20Handling%20a%20Large%20Number%20of%20Attributes%20in%20Full%20Profile%20Trade-Off%20Studies.pdf'>McCullough (2000) paper</a> on how to tackle this problem. Off the computer (during the data collection process), we can extend this conjoint analysis into 2 stages:
 
 1. Choice based study
 2. Self-rating attributes
