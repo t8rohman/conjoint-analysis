@@ -15,7 +15,6 @@ This library was inspired by <a href='http://www.macroinc.com/english/papers/A%2
 
 More precisely, he explained in the paper the steps on how to do the data collection:
 
-Analysis
 1. Using any of a variety of available conjoint or choice6 software, utility weights for each feature in the trade-off exercise (data step 2) can be estimated for each respondent.
 2. Utilities are then bridged from data step 1 with data step 2. On a per respondent basis, a scalar can be estimated using the common features in data step 1 and data step 2. Numerous algorithms for bridging exist. We typically use the Symbridge7 method.
 3. The scalar reduces the feature scores in data step 1 to a scale equivalent with data step 2 utility weights.
@@ -28,3 +27,14 @@ The important part here where we can connect these two different stages is by **
 ## Bridging
 
 There's a lot of bridging method we can pick to integrate these two stages into one. But one of the most popular bridging method is Symbridge Analysis, introduced by Francois and MacLachlan (1997). 
+
+    Create a scalar value to make a bridging. There are two alternatives we can go:
+
+- $B = (R_{11} / R_{21}) + (R_{12} / R_{22}) $
+- $B = (R_{11} + R_{12}) / (R_{21} + R_{22}) $
+
+Where $R_{ij}$ is the range of partworths of bridging attribute j in subdesign i. Or in a simpler way, it's the **estimate for each features in conjoint design**, and **self-explicated score given by respondents in rating design**. As recommended, it's preferable to **go with the second one**, as it's more stable and consistent. 
+
+After that, we can calculate it by integrating the scalar value to our design. See Francois and Machlachan (1999) paper **PAGE 21** for more details on how to integrate and calculate the final part worth from this design.
+
+{
