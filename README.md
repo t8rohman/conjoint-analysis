@@ -2,6 +2,19 @@
 
 Python library (not yet deployed) to make a conjoint analysis and extended calculation if we have a lot of attributes using symbridge analysis. A little bit snippet on how to do it:
 
+    target_var = 'chosen'
+    x_var = ['price', 'brand', 'keyless', 'electric', 'warranty']
+    bridge_var = ['brand', 'electric']
+    
+    sym_analysis = conjoint.symbridge_extended_analysis(df_conjoint=df_choice, 
+                                                    df_rating=df_rating, 
+                                                    target_var=target_var, 
+                                                    predictor_var=x_var, 
+                                                    bridge_var=bridge_var,
+                                                    anchor_var=anchor_var,
+                                                    resp_var='respID',
+                                                    compare_all='specific')
+
 ## Background
 
 Conjoint analysis is one of market research methods to know the part worth of an attribute of a product from the perspective of customers. The way it works is by asking a respondent to choose from several choices provided by the researcher, and these choices have different attributes, set beforehand either by randomized design or bayesian probability occurence. Based on several sources, maximum attributes we can put on the choices is up to seven. But, what if we want to investigate a lot of attributes, let's say 20 attributes?
@@ -34,7 +47,3 @@ Create a scalar value to make a bridging. There are two alternatives we can go:
 - $B = (R_{11} + R_{12}) / (R_{21} + R_{22})$
 
 Where $R_{ij}$ is the range of partworths of bridging attribute j in subdesign i. Or in a simpler way, it's the **estimate for each features in conjoint design**, and **self-explicated score given by respondents in rating design**. As recommended, it's preferable to **go with the second one**, as it's more stable and consistent. 
-
-After that, we can calculate it by integrating the scalar value to our design. See Francois and Machlachan (1999) paper **PAGE 21** for more details on how to integrate and calculate the final part worth from this design.
-
-{
