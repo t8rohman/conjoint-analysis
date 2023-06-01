@@ -2,7 +2,9 @@
 
 Python library (not yet deployed) to make a conjoint analysis and extended calculation if we have a lot of attributes using symbridge analysis. A little bit snippet on how to do it:
 
-'''target_var = 'chosen'
+```
+python
+target_var = 'chosen'
 x_var = ['price', 'brand', 'keyless', 'electric', 'warranty']
 bridge_var = ['brand', 'electric']
 
@@ -13,7 +15,8 @@ sym_analysis = conjoint.symbridge_extended_analysis(df_conjoint=df_choice,
                                                     bridge_var=bridge_var,
                                                     anchor_var=anchor_var,
                                                     resp_var='respID',
-                                                    compare_all='specific')'''
+                                                    compare_all='specific')
+```
 
 ## Background
 
