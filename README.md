@@ -2,8 +2,9 @@
 
 Python library (not yet deployed) to make a conjoint analysis and extended calculation if we have a lot of attributes using symbridge analysis. A little bit snippet on how to do it:
 
-```
-python
+```python
+import conjoint
+
 target_var = 'chosen'
 x_var = ['price', 'brand', 'keyless', 'electric', 'warranty']
 bridge_var = ['brand', 'electric']
@@ -38,11 +39,11 @@ More precisely, he explained in the paper the steps on how to do the data collec
 5. Data step 1 and data step 2 utility weights are then merged to create one set of bridged utility weights (with the utility values from data step 2 used for the attributes common to both steps).
 6. These merged utility weights define the conjoint or choice model from which all subsequent simulations will be based.
 
-The important part here where we can connect these two different stages is by **bridging** calculation:
+The important part here where we can connect these two different stages is by **bridging calculation:**
 
 ## Bridging
 
-There's a lot of bridging method we can pick to integrate these two stages into one. But one of the most popular bridging method is Symbridge Analysis, introduced by Francois and MacLachlan (1997). 
+There's a lot of bridging method we can pick to integrate these two stages into one. But one of the most popular bridging method is Symbridge Analysis, introduced by <a href='http://staff.washington.edu/macl/BRIDG97.pdf'>Francois and MacLachlan (1997) paper.</a> 
 
 Create a scalar value to make a bridging. There are two alternatives we can go:
 
@@ -50,3 +51,7 @@ Create a scalar value to make a bridging. There are two alternatives we can go:
 - $B = (R_{11} + R_{12}) / (R_{21} + R_{22})$
 
 Where $R_{ij}$ is the range of partworths of bridging attribute j in subdesign i. Or in a simpler way, it's the **estimate for each features in conjoint design**, and **self-explicated score given by respondents in rating design**. As recommended, it's preferable to **go with the second one**, as it's more stable and consistent. 
+
+## About this Library
+
+This library is used to calculate part worth from conjoint analysis and the extended self-rating score. Please see the docs to check some examples in Jupyter notebook file.
