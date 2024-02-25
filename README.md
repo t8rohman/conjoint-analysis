@@ -1,9 +1,9 @@
 # Handling a Large Number of Attributes in Conjoint Analysis with Symbridge Calculation
 
-Python library (not yet deployed) to make a conjoint analysis and extended calculation if we have a lot of attributes using symbridge analysis. A little bit snippet on how to do it:
+This Python module is designed by the author to perform conjoint analysis and extended calculations when dealing with numerous attributes using Symbridge Analysis. Below is a brief example of how to use it:
 
 ```python
-import conjoint
+from conjoint import conjoint
 
 target_var = 'chosen'
 x_var = ['price', 'brand', 'keyless', 'electric', 'warranty']
@@ -21,31 +21,31 @@ sym_analysis = conjoint.symbridge_extended_analysis(df_conjoint=df_choice,
 
 ## Background
 
-Conjoint analysis is one of market research methods to know the part worth of an attribute of a product from the perspective of customers. The way it works is by asking a respondent to choose from several choices provided by the researcher, and these choices have different attributes, set beforehand either by randomized design or bayesian probability occurence. Based on several sources, maximum attributes we can put on the choices is up to seven. But, what if we want to investigate a lot of attributes, let's say 20 attributes?
+Conjoint analysis is a market research method used to determine the value of product attributes from the customer's perspective. It involves presenting respondents with multiple choice scenarios, each representing a product with different attribute combinations. Traditionally, conjoint analysis is limited to a smaller number of attributes, typically up to seven. However, when investigating a larger number of attributes, such as 20, traditional conjoint analysis methods may become impractical as it will cause choice fatigue.
 
 ## Objectives
 
-This library was inspired by <a href='http://www.macroinc.com/english/papers/A%20Method%20for%20Handling%20a%20Large%20Number%20of%20Attributes%20in%20Full%20Profile%20Trade-Off%20Studies.pdf'>McCullough (2000) paper</a> on how to tackle this problem. Off the computer (during the data collection process), we can extend this conjoint analysis into 2 stages:
+This library draws inspiration from <a href='http://www.macroinc.com/english/papers/A%20Method%20for%20Handling%20a%20Large%20Number%20of%20Attributes%20in%20Full%20Profile%20Trade-Off%20Studies.pdf'>McCullough (2000) paper</a> on handling a large number of attributes in full-profile trade-off studies. The approach extends traditional conjoint analysis into two stages:
 
 1. Choice based study
 2. Self-rating attributes
 
 More precisely, he explained in the paper the steps on how to do the data collection:
 
-1. Using any of a variety of available conjoint or choice6 software, utility weights for each feature in the trade-off exercise (data step 2) can be estimated for each respondent.
-2. Utilities are then bridged from data step 1 with data step 2. On a per respondent basis, a scalar can be estimated using the common features in data step 1 and data step 2. Numerous algorithms for bridging exist. We typically use the Symbridge7 method.
-3. The scalar reduces the feature scores in data step 1 to a scale equivalent with data step 2 utility weights.
-4. On a per respondent basis, this scalar is multiplied by each score in data step 1 to achieve utility weights comparable to data step 2 utility weights.
-5. Data step 1 and data step 2 utility weights are then merged to create one set of bridged utility weights (with the utility values from data step 2 used for the attributes common to both steps).
-6. These merged utility weights define the conjoint or choice model from which all subsequent simulations will be based.
+1. Use conjoint or choice software to estimate utility weights for each feature in the trade-off exercise for each respondent.
+2. Bridge utilities from the choice-based study with self-rating attributes. A scalar is estimated per respondent using common features between the two data sets. The Symbridge method is often used for this purpose.
+3. The scalar is used to adjust the feature scores from the choice-based study to a scale equivalent to the self-rating attributes.
+4. The scalar is multiplied by each score in the choice-based study to achieve utility weights comparable to the self-rating attributes.
+5. The utility weights from both data sets are merged to create a single set of bridged utility weights.
+6. These merged utility weights define the conjoint or choice model for subsequent simulations.
 
-The important part here where we can connect these two different stages is by **bridging calculation:**
+The **bridging calculation** is a crucial step in connecting these two stages.
 
 ## Bridging
 
-There's a lot of bridging method we can pick to integrate these two stages into one. But one of the most popular bridging method is Symbridge Analysis, introduced by <a href='http://staff.washington.edu/macl/BRIDG97.pdf'>Francois and MacLachlan (1997) paper.</a> 
+One of the most popular bridging methods is Symbridge Analysis, introduced by <a href='http://staff.washington.edu/macl/BRIDG97.pdf'>Francois and MacLachlan (1997) paper.</a> This method aims to create a scalar value for bridging between the choice-based study and the self-rating attributes.
 
-Create a scalar value to make a bridging. There are two alternatives we can go:
+There are two alternatives for creating this scalar value:
 
 - $B = (R_{11} / R_{21}) + (R_{12} / R_{22})$
 - $B = (R_{11} + R_{12}) / (R_{21} + R_{22})$
@@ -54,4 +54,4 @@ Where $R_{ij}$ is the range of partworths of bridging attribute j in subdesign i
 
 ## About this Library
 
-This library is used to calculate part worth from conjoint analysis and the extended self-rating score. Please see the docs to check some examples in Jupyter notebook file.
+This library is utilized to compute the part worth from conjoint analysis and the extended self-rating score. For detailed examples, please refer to the docs folder and check out some examples provided in the Jupyter notebook file.
