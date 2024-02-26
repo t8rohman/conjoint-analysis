@@ -19,6 +19,19 @@ sym_analysis = conjoint.symbridge_extended_analysis(df_conjoint=df_choice,
                                                     compare_all='specific')
 ```
 
+Additionally, this module is equipped with a "table_generator" program, which is used to create a formatted table from choice data for choice-based conjoint analysis. You can generate the choice data by using cbcTools package in R. For more information about the cbcTools package, please visit the following <a href="https://jhelvy.github.io/cbcTools/">link.</a>
+
+Below is a brief example of how to use table_generator:
+
+```python
+from conjoint import table_generator
+
+table_generator.table_generator(input_path='car_options_example.csv',
+                                label='Cars',
+                                col_id='qID',
+                                path_to_save='tables')
+```
+
 ## Background
 
 Conjoint analysis is a market research method used to determine the value of product attributes from the customer's perspective. It involves presenting respondents with multiple choice scenarios, each representing a product with different attribute combinations. Traditionally, conjoint analysis is limited to a smaller number of attributes, typically up to seven. However, when investigating a larger number of attributes, such as 20, traditional conjoint analysis methods may become impractical as it will cause choice fatigue.
