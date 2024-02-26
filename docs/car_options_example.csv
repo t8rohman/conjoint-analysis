@@ -1,0 +1,19 @@
+qID,price,brand,keyless,electric,warranty
+1,above 50k,japan,No,Yes,No
+1,10k - 50k,europe,Yes,Yes,Yes
+1,below 10k,japan,Yes,No,Yes
+2,above 50k,europe,Yes,Yes,No
+2,10k - 50k,japan,Yes,Yes,Yes
+2,below 10k,europe,No,No,No
+3,10k - 50k,europe,No,No,Yes
+3,above 50k,japan,Yes,Yes,Yes
+3,below 10k,europe,No,Yes,No
+4,below 10k,japan,No,Yes,Yes
+4,above 50k,japan,Yes,No,No
+4,10k - 50k,europe,Yes,Yes,No
+5,10k - 50k,japan,Yes,No,No
+5,below 10k,europe,Yes,Yes,Yes
+5,above 50k,europe,No,No,Yes
+6,below 10k,japan,Yes,No,No
+6,above 50k,europe,Yes,No,Yes
+6,10k - 50k,japan,No,Yes,Yes
